@@ -1,0 +1,26 @@
+table {
+	border:1px solid black;
+}
+th {
+    border-bottom: 1px solid black;
+}
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+th:first-child, td:first-child {
+	border-right:1px solid grey;
+}
+input#sheet {
+	width: 400px;
+}
+.message {
+	background-color: rgba(255, 0, 0, 0.25);
+	width: 150px;
+	height: 20px;
+	padding: 7px;
+	border: 2px dashed rgba(238, 53, 53, 0.49);
+	font-weight: bold;
+}
+.caps {
+	text-transform: capitalize;
+}
