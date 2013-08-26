@@ -1,10 +1,11 @@
 jQuery(document).ready(function ($) {
-	var target = "#"+jsParams.unique;
+	var template = _.template($('#listed').html());
 	var sheet =jsParams.sheet;
 	
-	$(target).sheetrock({
+	$("#response").sheetrock({
 		url: sheet,
-		sql: "select B, C order by A"
-		//,chunkSize: 20
+		sql: "select %FirstName%, %LastName%",
+		headersOff: true,
+		rowHandler: template
 	});
 });

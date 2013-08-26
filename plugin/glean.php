@@ -31,7 +31,14 @@ function glean_short( $atts ) {
 	wp_enqueue_script('glean_js');
 	wp_localize_script('glean_js', 'jsParams', $params);
 
-	return "<table id=\"".$unique."\" cellspacing=\"0\" cellpadding=\"4\"></table>";
+	return "<div>
+		Responded
+		<ul id=\"response\">
+			<script type=\"text/underscore-template\" id=\"listed\">
+			<li><%= cells.FirstName %> <%= cells.LastName %></li>
+			</script>
+		</ul>
+		</div>";
 }
 add_shortcode( 'display_response', 'glean_short' );
 
@@ -40,6 +47,12 @@ function glean_js() {
 	wp_enqueue_script(
 		'jquery.sheetrock',
 		plugins_url( '/jquery.sheetrock.js' , __FILE__ ),
+		array( 'jquery' )
+	);
+	
+	wp_enqueue_script(
+		'underscore',
+		plugins_url( '/underscore-min.js' , __FILE__ ),
 		array( 'jquery' )
 	);
 }
